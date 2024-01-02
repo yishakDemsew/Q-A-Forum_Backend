@@ -3,7 +3,7 @@ const router = express.Router();
 
 // import userControllers
 let { register, login, checkUser } = require("../controller/userController");
-const authMiddleware = require("../middleware/authmiddleware");
+const authMiddleware = require("../middleware/authMiddleware");
 
 //register route
 router.post("/register", register);
