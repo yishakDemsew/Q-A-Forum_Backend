@@ -51,7 +51,7 @@
 
 require("dotenv").config();
 let mysql2 = require("mysql2");
-const dbConnection = mysql2.createPool(process.env.urlDB);
+const dbConnection = mysql2.createPool(process.env.DB_URL);
 
 const users = `
     CREATE TABLE IF NOT EXISTS users (
