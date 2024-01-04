@@ -22,9 +22,9 @@ const answerRoute = require("./routes/answerRoute");
 // db connection
 let dbConnection = require("./db/dbConfig");
 
-// app.get("/", (req, res) => {
-//     res.send("hello world!");
-// });
+app.get("/", (req, res) => {
+    res.send("hello world!, from Yishak D. Masresha");
+});
 
 //user routes middleware
 app.use("/api/users", userRoute);
