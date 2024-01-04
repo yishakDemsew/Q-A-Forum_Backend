@@ -80,8 +80,8 @@ const questions = `
         title VARCHAR(200) NOT NULL,
         description VARCHAR(200) NOT NULL,
         tag VARCHAR(20),
-        PRIMARY KEY (id, question_id),
-        FOREIGN KEY (user_id) REFERENCES users(user_id)
+        PRIMARY KEY (id, question_id)
+   
     )
 `;
 
@@ -98,9 +98,8 @@ const answer = `
         user_id INT NOT NULL,
         question_id VARCHAR(200) NOT NULL,
         answer VARCHAR(200) NOT NULL,    
-        PRIMARY KEY (answer_id),
-        FOREIGN KEY (user_id) REFERENCES users(user_id),
-        FOREIGN KEY (question_id) REFERENCES questions(question_id)
+        PRIMARY KEY (answer_id)
+     
     )
 `;
 
