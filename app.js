@@ -7,7 +7,7 @@ const port = 5500;
 //json middleware to extract json data
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({ origin: "evangadi-forum-izak.netlify.app" }));
 
 let authMiddleware = require("./middleware/authMiddleware");
 //user routes middleware file
