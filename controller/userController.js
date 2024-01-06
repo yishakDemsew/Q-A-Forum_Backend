@@ -34,12 +34,19 @@ async function register(req, res) {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        await dbConnection.query(
+        let result = await dbConnection.query(
             "INSERT INTO users(user_name,first_name, last_name, email,password) VALUES (?,?,?,?,?)",
             [username, firstname, lastname, email, hashedPassword]
         );
+        console.log(result); //insertId
+        let userid = result.insertId;
+        const token = jwt.sign({ username, userid }, "secret", {
+            expiresIn: "1d",
+        });
 
-        return res.status(StatusCodes.CREATED).json({ msg: "user created" });
+        return res
+            .status(StatusCodes.CREATED)
+            .json({ msg: "user created", token });
     } catch (error) {
         console.log(error.message);
         return res
